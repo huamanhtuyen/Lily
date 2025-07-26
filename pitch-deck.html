@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lily - Tài liệu Gọi Vốn | AI English Learning Device</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><polygon points="0,100 1000,0 1000,100"/></svg>');
+            background-size: cover;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .header .subtitle {
+            font-size: 1rem;
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--bg-white);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Main Content */
+        .main {
+            padding: 3rem 0;
+        }
+
+        .section {
+            background: var(--bg-white);
+            margin-bottom: 3rem;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin: 2rem 0 1rem 0;
+        }
+
+        .section p, .section li {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .section ul {
+            padding-left: 1.5rem;
+        }
+
+        /* Demo Section */
+        .demo-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left-color: var(--accent-color);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .video-card {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .video-placeholder {
+            background: var(--bg-light);
+            height: 200px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            border: 2px dashed var(--border-color);
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: var(--bg-light);
+        }
+
+        /* Special Sections */
+        .highlight-section {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-left-color: var(--primary-color);
+        }
+
+        .warning-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left-color: var(--warning-color);
+        }
+
+        .success-section {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-left-color: var(--success-color);
+        }
+
+        .danger-section {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border-left-color: var(--danger-color);
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 3rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 2rem 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .nav ul {
+                gap: 1rem;
+            }
+
+            .nav a {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 40px 0;
+            }
+
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .section {
+                padding: 1.5rem 1rem;
+            }
+
+            .section h2 {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav, .cta-section, .footer {
+                display: none;
+            }
+            
+            .section {
+                box-shadow: none;
+                border: 1px solid var(--border-color);
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1>🌸 Lily</h1>
+                <p>Thiết bị AI thông minh cho việc học tiếng Anh</p>
+                <div class="subtitle">
+                    Tài liệu gọi vốn - Dự án phần cứng tích hợp AI LLM chuyên biệt cho việc luyện hội thoại tiếng Anh
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="#overview">Tổng quan</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#problem">Vấn đề</a></li>
+                <li><a href="#solution">Giải pháp</a></li>
+                <li><a href="#market">Thị trường</a></li>
+                <li><a href="#financial">Tài chính</a></li>
+                <li><a href="#investment">Đầu tư</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="container">
+            <!-- Tổng quan dự án -->
+            <section id="overview" class="section highlight-section">
+                <h2>📌 Tổng quan dự án</h2>
+                <p><strong>Lily</strong> là một dự án phần cứng đột phá tích hợp công nghệ AI LLM tiên tiến, được thiết kế chuyên biệt để tạo ra môi trường học tiếng Anh tương tác và tự nhiên.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">AI</div>
+                        <div class="stat-label">Tích hợp LLM chuyên biệt</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Ngôn ngữ (Việt - Anh)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Tương tác hội thoại</div>
+                    </div>
+                </div>
+
+                <h3>🎯 Đặc điểm nổi bật:</h3>
+                <ul>
+                    <li><strong>AI chuyên biệt:</strong> Được lập trình riêng để làm giáo viên tiếng Anh, có khả năng hội thoại tự nhiên bằng cả tiếng Việt và tiếng Anh</li>
+                    <li><strong>Tương tác thông minh:</strong> Phản hồi tức thì, điều chỉnh theo trình độ người học</li>
+                    <li><strong>An toàn nội dung:</strong> Tập trung vào học ngoại ngữ, có thể trò chuyện về các chủ đề lành mạnh</li>
+                    <li><strong>Trải nghiệm tự nhiên:</strong> Đạt trình độ nói chuyện như một người thật</li>
+                </ul>
+            </section>
+
+            <!-- Demo sản phẩm -->
+            <section id="demo" class="section demo-section">
+                <h2>🎥 Demo sản phẩm</h2>
+                <p><strong>⚠️ Yêu cầu xem trước:</strong> Trước khi đọc tiếp tài liệu, vui lòng xem 3 video demo sản phẩm dưới đây để hiểu rõ khả năng của Lily:</p>
+                
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-placeholder">
+                            <div>
+                                <h4>📹 Video 1</h4>
+                                <p>1.mp4</p>
+                            </div>
+                        </div>
+                        <h3>Trẻ em 10 tuổi - Beginner</h3>
+                        <p>Minh họa khả năng tương tác với trẻ nhỏ ở trình độ tiếng Anh cơ bản</p>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-placeholder">
+                            <div>
+                                <h4>📹 Video 2</h4>
+                                <p>Demo video</p>
+                            </div>
+                        </div>
+                        <h3>Thiếu niên 15 tuổi - Trung cấp</h3>
+                        <p>Thể hiện khả năng hội thoại với học sinh trung học phổ thông</p>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-placeholder">
+                            <div>
+                                <h4>📹 Video 3</h4>
+                                <p>Demo video</p>
+                            </div>
+                        </div>
+                        <h3>Người lớn 40 tuổi - Beginner</h3>
+                        <p>Khả năng điều chỉnh phù hợp với người học trưởng thành</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mục tiêu sản phẩm -->
+            <section id="solution" class="section success-section">
+                <h2>📚 Mục tiêu của sản phẩm</h2>
+                
+                <h3>✅ Lily CÓ THỂ:</h3>
+                <ul>
+                    <li>Tạo thêm môi trường thực hành hội thoại ngắn tiếng Anh</li>
+                    <li>Giúp người học có thêm thời gian luyện nghe nói mà không cần tìm đối tác</li>
+                    <li>Mang lại trải nghiệm nói chuyện tự nhiên như với người thật</li>
+                    <li>Hỗ trợ 24/7 việc rèn luyện phản xạ nghe nói</li>
+                </ul>
+
+                <h3>❌ Lily KHÔNG THỂ:</h3>
+                <ul>
+                    <li>Dạy một giáo trình tiếng Anh cụ thể</li>
+                    <li>Thay thế hoàn toàn các trung tâm tiếng Anh hoặc trường học</li>
+                    <li>Đảm bảo kết quả đầu ra cụ thể trong học tập</li>
+                </ul>
+
+                <div style="background: rgba(16, 185, 129, 0.1); padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+                    <strong>💡 Lily là công cụ bổ trợ hoàn hảo - tập trung vào việc tạo môi trường thực hành tự nhiên và thuận tiện.</strong>
+                </div>
+            </section>
+
+            <!-- Vấn đề khách hàng -->
+            <section id="problem" class="section danger-section">
+                <h2>😫 Vấn đề khách hàng gặp phải</h2>
+                
+                <h3>🎯 Thực trạng hiện tại:</h3>
+                <ul>
+                    <li><strong>Thiếu môi trường thực hành:</strong> Người Việt Nam học tiếng Anh ở trường/trung tâm nhưng vẫn khó nói chuyện trôi chảy với người nước ngoài</li>
+                    <li><strong>Hạn chế về thời gian:</strong> Quá ít thời gian thực hành nói chuyện trực tiếp</li>
+                    <li><strong>Thiếu cơ hội rèn luyện:</strong> Không có đủ cơ hội rèn luyện phản xạ nghe nói với phát âm chuẩn</li>
+                    <li><strong>Rào cản kinh tế:</strong> Chi phí cao cho việc thuê gia sư hoặc tham gia các lớp conversation</li>
+                </ul>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" style="color: var(--danger-color);">85%</div>
+                        <div class="stat-label">Học sinh không tự tin giao tiếp</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" style="color: var(--danger-color);"><2h</div>
+                        <div class="stat-label">Thời gian thực hành/tuần</div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(239, 68, 68, 0.1); padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+                    <strong>🔍 Lily chính là giải pháp để giải quyết vấn đề thiếu môi trường thực hành tiếng Anh hiệu quả và tiện lợi.</strong>
+                </div>
+            </section>
+
+            <!-- Bảo mật -->
+            <section class="section warning-section">
+                <h2>🔒 Cam kết bảo mật</h2>
+                <p>Mọi thông tin trong tài liệu này được chia sẻ dựa trên sự tin tưởng và cam kết bảo mật từ phía quý đối tác.</p>
+                
+                <div style="background: rgba(245, 158, 11, 0.2); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--warning-color);">
+                    <strong>📋 Cam kết bảo mật:</strong>
+                    <ul style="margin-top: 1rem;">
+                        <li>Thông tin về giá vốn nhà sản xuất</li>
+                        <li>Chi tiết công nghệ và kỹ thuật</li>
+                        <li>Kế hoạch marketing và chiến lược kinh doanh</li>
+                        <li>Mọi thông tin nhạy cảm khác trong tài liệu</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Cam kết và kiểm chứng -->
+            <section class="section success-section">
+                <h2>✅ Cam kết và kiểm chứng</h2>
+                <p><strong>Đồng chí Tuyển cam kết</strong> mọi thông tin cung cấp trong tài liệu này đều chính xác và có thể kiểm chứng trực tiếp.</p>
+                
+                <h3>🔍 Các thông tin có thể kiểm chứng:</h3>
+                <ul>
+                    <li>Giá vốn phần cứng và phần mềm của sản phẩm</li>
+                    <li>Tính năng và khả năng hoạt động của sản phẩm</li>
+                    <li>Công nghệ và tài sản trí tuệ</li>
+                    <li>Quy trình sản xuất và chất lượng</li>
+                </ul>
+            </section>
+
+            <!-- Tính khả thi -->
+            <section class="section highlight-section">
+                <h2>👪 Tính khả thi & nhu cầu thực tế</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">2 triệu</div>
+                        <div class="stat-label">VNĐ/tháng - Chi phí hiện tại</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24-30 triệu</div>
+                        <div class="stat-label">VNĐ/năm - Tổng chi phí</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Nhiều năm</div>
+                        <div class="stat-label">Thời gian đầu tư liên tục</div>
+                    </div>
+                </div>
+
+                <p><strong>📊 Nghiên cứu thị trường:</strong> Qua khảo sát thực tế tại Hà Nội, trung bình mỗi gia đình chi <strong>2 triệu VNĐ/tháng</strong> cho việc học tiếng Anh của con em, tương đương <strong>24-30 triệu VNĐ/năm</strong> và kéo dài trong nhiều năm.</p>
+                
+                <div style="background: rgba(37, 99, 235, 0.1); padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+                    <strong>💡 Cơ hội:</strong> Lily với giá 5.85 triệu VNĐ có thể thay thế chi phí 4-6 tháng học thêm, nhưng sử dụng được nhiều năm.
+                </div>
+            </section>
+
+            <!-- Giá thành & thị trường -->
+            <section id="market" class="section">
+                <h2>💵 Giá thành & thị trường</h2>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Hạng mục</th>
+                                <th>Giá trị</th>
+                                <th>Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Giá bán lẻ</strong></td>
+                                <td><strong>5.850.000 VNĐ</strong></td>
+                                <td>Giá niêm yết cho người tiêu dùng</td>
+                            </tr>
+                            <tr>
+                                <td>Giá sản xuất phần cứng</td>
+                                <td>~27 USD</td>
+                                <td>Chưa bao gồm thuế phí</td>
+                            </tr>
+                            <tr>
+                                <td>Lãi gộp/sản phẩm</td>
+                                <td>~5.000.000 VNĐ</td>
+                                <td>Chưa tính chi phí marketing, vận hành</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>🌏 Tiềm năng thị trường:</h3>
+                <ul>
+                    <li><strong>Thị trường trong nước:</strong> Dung lượng rất lớn, chưa có sản phẩm cạnh tranh trực tiếp</li>
+                    <li><strong>Mở rộng quốc tế:</strong> Khả năng xuất khẩu sang các nước không nói tiếng Anh như Thái Lan, Malaysia...</li>
+                    <li><strong>Đối tượng mục tiêu:</strong> Gia đình có con trong độ tuổi học, người lớn muốn cải thiện tiếng Anh</li>
+                </ul>
+            </section>
+
+            <!-- Quản lý rủi ro -->
+            <section class="section warning-section">
+                <h2>⚠️ Quản lý rủi ro</h2>
+                
+                <h3>💸 Các khoản chi phí tiềm ẩn:</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Hạng mục rủi ro</th>
+                                <th>Ước tính</th>
+                                <th>Mức độ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hoạt động công ty (lương, văn phòng)</td>
+                                <td>Biến đổi</td>
+                                <td>Trung bình</td>
+                            </tr>
+                            <tr>
+                                <td>Vốn sản xuất hàng loạt</td>
+                                <td>~30.000 USD</td>
+                                <td>Trung bình</td>
+                            </tr>
+                            <tr>
+                                <td>Chi phí marketing</td>
+                                <td>~30.000 USD</td>
+                                <td><strong>Cao nhất</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="background: rgba(245, 158, 11, 0.2); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--warning-color); margin-top: 2rem;">
+                    <strong>🎯 Chiến lược quản lý rủi ro:</strong>
+                    <ul style="margin-top: 1rem;">
+                        <li><strong>Sản xuất theo đơn hàng:</strong> Bán hết mới nhập thêm</li>
+                        <li><strong>Marketing thông minh:</strong> Tập trung ROI cao, tránh lãng phí</li>
+                        <li><strong>Kiểm soát chi phí:</strong> Khởi đầu lean, mở rộng dần</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Lợi nhuận và phân chia -->
+            <section id="financial" class="section success-section">
+                <h2>💰 Lợi nhuận và phân chia</h2>
+                
+                <h3>📈 Nguyên tắc phân chia:</h3>
+                <ul>
+                    <li><strong>Lãi:</strong> Một phần tái đầu tư tăng trưởng, phần còn lại chia theo % cổ phần</li>
+                    <li><strong>Lỗ:</strong> Chịu lỗ theo % cổ phần tương ứng</li>
+                    <li><strong>Tài sản trí tuệ:</strong> Chi phí R&D, thiết kế được quy đổi thành cổ phần sáng lập</li>
+                </ul>
+
+                <div style="background: rgba(16, 185, 129, 0.1); padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+                    <strong>🏆 Giá trị cốt lõi:</strong> Tài sản trí tuệ về phần mềm, phần cứng và sản phẩm mẫu là nền tảng quan trọng, được định giá tương ứng với phần cổ phần sáng lập.
+                </div>
+            </section>
+
+            <!-- Mục tiêu kinh doanh -->
+            <section class="section highlight-section">
+                <h2>🎯 Mục tiêu kinh doanh</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">5.000</div>
+                        <div class="stat-label">Sản phẩm/năm (mục tiêu)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5 triệu</div>
+                        <div class="stat-label">VNĐ lãi gộp/sản phẩm</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">25 tỷ</div>
+                        <div class="stat-label">VNĐ lợi nhuận gộp/năm</div>
+                    </div>
+                </div>
+
+                <h3>📊 Định giá công ty:</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Kịch bản</th>
+                                <th>Định giá</th>
+                                <th>Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Mục tiêu kỳ vọng</strong></td>
+                                <td><strong>125 tỷ VNĐ</strong></td>
+                                <td>P/E = 5, đạt 5.000 sp/năm</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Gọi vốn thực hiện</strong></td>
+                                <td><strong>15 tỷ VNĐ</strong></td>
+                                <td>Định giá thận trọng cho giai đoạn sớm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div style="background: rgba(37, 99, 235, 0.1); padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+                    <strong>💡 Chiến lược định giá:</strong> Sử dụng định giá 15 tỷ VNĐ (thấp hơn 8x so với kỳ vọng) để thu hút nhà đầu tư giai đoạn sớm và tạo cơ hội tăng trưởng giá trị mạnh.
+                </div>
+            </section>
+
+            <!-- Đầu tư -->
+            <section id="investment" class="section">
+                <h2>📊 Tóm tắt tình hình gọi vốn</h2>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Hạng mục</th>
+                                <th>Giá trị</th>
+                                <th>Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>🎯 Định giá mục tiêu (kỳ vọng)</td>
+                                <td><strong>125 tỷ VNĐ</strong></td>
+                                <td>5.000 sản phẩm/năm, lãi 5 triệu/sp</td>
+                            </tr>
+                            <tr>
+                                <td>🤝 Định giá gọi vốn thực hiện</td>
+                                <td><strong>15 tỷ VNĐ</strong></td>
+                                <td>Giảm hơn 8x kỳ vọng - phù hợp giai đoạn sớm</td>
+                            </tr>
+                            <tr>
+                                <td>📈 Chiến lược</td>
+                                <td colspan="2">Nhượng cổ phần nhiều để "kickstart", giữ quyền kiểm soát</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>📐 Cách tính cổ phần (Pre-money 15 tỷ):</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Số tiền gọi vốn</th>
+                                <th>% cổ phần phải nhượng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>500 triệu VNĐ</td>
+                                <td>3.33%</td>
+                            </tr>
+                            <tr>
+                                <td>1 tỷ VNĐ</td>
+                                <td>6.67%</td>
+                            </tr>
+                            <tr>
+                                <td>2 tỷ VNĐ</td>
+                                <td>13.33%</td>
+                            </tr>
+                            <tr>
+                                <td>3 tỷ VNĐ</td>
+                                <td>20%</td>
+                            </tr>
+                            <tr>
+                                <td>5 tỷ VNĐ</td>
+                                <td>33.33%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Cam kết với nhà đầu tư -->
+            <section class="section success-section">
+                <h2>🤝 Cam kết rõ ràng với nhà đầu tư</h2>
+                
+                <h3>🎁 Quyền lợi nhà đầu tư giai đoạn sớm:</h3>
+                <ul>
+                    <li><strong>Pro-rata rights:</strong> Quyền ưu đãi tham gia vòng gọi vốn tiếp theo</li>
+                    <li><strong>Discount privileges:</strong> Giá ưu đãi cho các vòng đầu tư sau</li>
+                    <li><strong>Upside potential:</strong> Khi có doanh thu, định giá có thể tăng 3-5x (50-80 tỷ)</li>
+                </ul>
+
+                <h3>📋 Cấu trúc đầu tư linh hoạt:</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">SAFE</div>
+                        <div class="stat-label">Simple Agreement for Future Equity</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Seed</div>
+                        <div class="stat-label">Vòng gọi vốn chính thức sau</div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(16, 185, 129, 0.1); padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+                    <strong>⚠️ Lưu ý:</strong> Hiện tại công ty chưa được thành lập. Định giá 15 tỷ VNĐ để đàm phán và chuẩn bị phân chia cổ phần khi công ty được đăng ký hợp pháp.
+                </div>
+            </section>
+
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <div class="container">
+                    <h2>🚀 Cơ hội đầu tư vào tương lai giáo dục</h2>
+                    <p>Lily không chỉ là một sản phẩm - đây là cơ hội tham gia vào cuộc cách mạng công nghệ giáo dục tại Việt Nam.</p>
+                    <p><strong>Liên hệ ngay để thảo luận chi tiết về cơ hội đầu tư và đối tác chiến lược.</strong></p>
+                    <a href="#contact" class="btn">Liên hệ đầu tư ngay</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Lily Project. Tài liệu bảo mật - Chỉ dành cho nhà đầu tư tiềm năng.</p>
+            <p>Liên hệ: <strong>Đồng chí Tuyển</strong> | Email: contact@lily-project.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html> 
