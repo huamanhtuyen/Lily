@@ -397,13 +397,88 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Investment Summary Mobile */
+        .investment-summary-mobile {
+            display: block;
+        }
+
+        .investment-card {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* Equity Calculation Mobile */
+        .equity-calculation-mobile {
+            display: block;
+        }
+
+        .equity-card {
+            background: var(--bg-white);
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-left: 3px solid var(--primary-color);
+        }
+
+        /* Company Valuation Mobile */
+        .company-valuation-mobile {
+            display: block;
+        }
+
+        .valuation-card {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* Market Pricing Mobile */
+        .market-pricing-mobile {
+            display: block;
+        }
+
+        .pricing-card {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* Risk Cost Mobile */
+        .risk-cost-mobile {
+            display: block;
+        }
+
+        .risk-card {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--warning-color);
+        }
+
         /* Desktop: Show table, hide mobile cards */
         @media (min-width: 769px) {
             .table-container {
                 display: block !important;
             }
             
-            .funding-stages-mobile {
+            .funding-stages-mobile, 
+            .investment-summary-mobile, 
+            .equity-calculation-mobile,
+            .company-valuation-mobile,
+            .market-pricing-mobile,
+            .risk-cost-mobile {
                 display: none;
             }
         }
@@ -414,7 +489,12 @@
                 display: none !important;
             }
             
-            .funding-stages-mobile {
+            .funding-stages-mobile, 
+            .investment-summary-mobile, 
+            .equity-calculation-mobile,
+            .company-valuation-mobile,
+            .market-pricing-mobile,
+            .risk-cost-mobile {
                 display: block;
             }
         }
@@ -679,6 +759,7 @@
             <section id="market" class="section">
                 <h2>💵 Giá thành & thị trường</h2>
                 
+                <!-- Desktop Table -->
                 <div class="table-container">
                     <table>
                         <thead>
@@ -708,6 +789,27 @@
                     </table>
                 </div>
 
+                <!-- Mobile Cards -->
+                <div class="market-pricing-mobile">
+                    <div class="pricing-card" style="border-left-color: var(--accent-color);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;">💰 Giá bán lẻ</h4>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: var(--accent-color); margin-bottom: 0.5rem;">5.850.000 VNĐ</div>
+                        <p style="color: var(--text-secondary); margin: 0;">Giá niêm yết cho người tiêu dùng</p>
+                    </div>
+                    
+                    <div class="pricing-card" style="border-left-color: var(--primary-color);">
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">🏭 Giá sản xuất phần cứng</h4>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color); margin-bottom: 0.5rem;">~27 USD</div>
+                        <p style="color: var(--text-secondary); margin: 0;">Chưa bao gồm thuế phí</p>
+                    </div>
+                    
+                    <div class="pricing-card" style="border-left-color: var(--success-color);">
+                        <h4 style="color: var(--success-color); margin-bottom: 0.5rem;">📈 Lãi gộp/sản phẩm</h4>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: var(--success-color); margin-bottom: 0.5rem;">~5.000.000 VNĐ</div>
+                        <p style="color: var(--text-secondary); margin: 0;">Chưa tính chi phí marketing, vận hành</p>
+                    </div>
+                </div>
+
                 <h3>🌏 Tiềm năng thị trường:</h3>
                 <ul>
                     <li><strong>Thị trường trong nước:</strong> Dung lượng rất lớn, chưa có sản phẩm cạnh tranh trực tiếp</li>
@@ -721,6 +823,8 @@
                 <h2>⚠️ Quản lý rủi ro</h2>
                 
                 <h3>💸 Các khoản chi phí tiềm ẩn:</h3>
+                
+                <!-- Desktop Table -->
                 <div class="table-container">
                     <table>
                         <thead>
@@ -748,6 +852,36 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+
+                <!-- Mobile Cards -->
+                <div class="risk-cost-mobile">
+                    <div class="risk-card" style="border-left-color: var(--warning-color);">
+                        <h4 style="color: var(--warning-color); margin-bottom: 0.5rem;">🏢 Hoạt động công ty</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 0.5rem; font-size: 0.9rem;">(lương, văn phòng)</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: bold; color: var(--text-primary);">Biến đổi</span>
+                            <span style="background: rgba(245, 158, 11, 0.2); color: var(--warning-color); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">Trung bình</span>
+                        </div>
+                    </div>
+                    
+                    <div class="risk-card" style="border-left-color: var(--primary-color);">
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">🏭 Vốn sản xuất hàng loạt</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 0.5rem; font-size: 0.9rem;">(mỗi 1000 sản phẩm)</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: bold; color: var(--text-primary);">~30.000 USD</span>
+                            <span style="background: rgba(245, 158, 11, 0.2); color: var(--warning-color); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">Trung bình</span>
+                        </div>
+                    </div>
+                    
+                    <div class="risk-card" style="border-left-color: var(--danger-color);">
+                        <h4 style="color: var(--danger-color); margin-bottom: 0.5rem;">📢 Chi phí marketing</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 0.5rem; font-size: 0.9rem;">(mỗi 1000 sản phẩm)</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: bold; color: var(--text-primary);">~30.000 USD</span>
+                            <span style="background: rgba(239, 68, 68, 0.2); color: var(--danger-color); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">Cao nhất</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div style="background: rgba(245, 158, 11, 0.2); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--warning-color); margin-top: 2rem;">
@@ -796,6 +930,8 @@
                 </div>
 
                 <h3>📊 Định giá công ty:</h3>
+                
+                <!-- Desktop Table -->
                 <div class="table-container">
                     <table>
                         <thead>
@@ -818,6 +954,21 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+
+                <!-- Mobile Cards -->
+                <div class="company-valuation-mobile">
+                    <div class="valuation-card">
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">💎 Mục tiêu kỳ vọng</h4>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color); margin-bottom: 0.5rem;">125 tỷ VNĐ</div>
+                        <p style="color: var(--text-secondary); margin: 0;">P/E = 5, đạt 5.000 sp/năm</p>
+                    </div>
+                    
+                    <div class="valuation-card">
+                        <h4 style="color: var(--success-color); margin-bottom: 0.5rem;">🤝 Gọi vốn thực hiện</h4>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: var(--success-color); margin-bottom: 0.5rem;">15 tỷ VNĐ</div>
+                        <p style="color: var(--text-secondary); margin: 0;">Định giá thận trọng cho giai đoạn sớm</p>
+                    </div>
                 </div>
                 
                 <div style="background: rgba(37, 99, 235, 0.1); padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
@@ -970,6 +1121,7 @@
             <section id="investment" class="section">
                 <h2>📊 Tóm tắt tình hình gọi vốn</h2>
                 
+                <!-- Desktop Table -->
                 <div class="table-container">
                     <table>
                         <thead>
@@ -998,7 +1150,29 @@
                     </table>
                 </div>
 
+                <!-- Mobile Cards -->
+                <div class="investment-summary-mobile">
+                    <div class="investment-card">
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">🎯 Định giá mục tiêu (kỳ vọng)</h4>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color); margin-bottom: 0.5rem;">125 tỷ VNĐ</div>
+                        <p style="color: var(--text-secondary); margin: 0;">5.000 sản phẩm/năm, lãi 5 triệu/sp</p>
+                    </div>
+                    
+                    <div class="investment-card">
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">🤝 Định giá gọi vốn thực hiện</h4>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color); margin-bottom: 0.5rem;">15 tỷ VNĐ</div>
+                        <p style="color: var(--text-secondary); margin: 0;">Giảm hơn 8x kỳ vọng - phù hợp giai đoạn sớm</p>
+                    </div>
+                    
+                    <div class="investment-card">
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">📈 Chiến lược</h4>
+                        <p style="color: var(--text-secondary); margin: 0;">Nhượng cổ phần nhiều để "kickstart" (để có thể bắt đầu hoạt động)</p>
+                    </div>
+                </div>
+
                 <h3>📐 Cách tính cổ phần (Pre-money 15 tỷ):</h3>
+                
+                <!-- Desktop Table -->
                 <div class="table-container">
                     <table>
                         <thead>
@@ -1030,6 +1204,44 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+
+                <!-- Mobile Cards -->
+                <div class="equity-calculation-mobile">
+                    <div class="equity-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600;">500 triệu VNĐ</span>
+                            <span style="color: var(--primary-color); font-weight: bold;">3.33%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="equity-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600;">1 tỷ VNĐ</span>
+                            <span style="color: var(--primary-color); font-weight: bold;">6.67%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="equity-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600;">2 tỷ VNĐ</span>
+                            <span style="color: var(--primary-color); font-weight: bold;">13.33%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="equity-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600;">3 tỷ VNĐ</span>
+                            <span style="color: var(--primary-color); font-weight: bold;">20%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="equity-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600;">5 tỷ VNĐ</span>
+                            <span style="color: var(--primary-color); font-weight: bold;">33.33%</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
