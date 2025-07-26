@@ -377,6 +377,48 @@
             }
         }
 
+        /* Funding Stages Responsive */
+        .funding-stages-mobile {
+            display: block;
+        }
+
+        .stage-card {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .stage-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Desktop: Show table, hide mobile cards */
+        @media (min-width: 769px) {
+            .table-container {
+                display: block !important;
+            }
+            
+            .funding-stages-mobile {
+                display: none;
+            }
+        }
+
+        /* Mobile: Show cards, hide table */
+        @media (max-width: 768px) {
+            .table-container {
+                display: none !important;
+            }
+            
+            .funding-stages-mobile {
+                display: block;
+            }
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -787,6 +829,7 @@
             <section class="section highlight-section">
                 <h2>🚀 Các giai đoạn gọi vốn</h2>
                 
+                <!-- Desktop Table -->
                 <div class="table-container">
                     <table>
                         <thead>
@@ -833,6 +876,63 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+
+                <!-- Mobile Cards -->
+                <div class="funding-stages-mobile">
+                    <!-- Bootstrapping Card -->
+                    <div class="stage-card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05)); border-left: 4px solid var(--success-color);">
+                        <div class="stage-header">
+                            <h4 style="margin: 0; color: var(--success-color);">💪 Bootstrapping</h4>
+                            <span style="color: var(--success-color); font-weight: bold; font-size: 0.9rem;">✅ Hoàn thành</span>
+                        </div>
+                        <p style="margin: 0.5rem 0; color: var(--text-secondary);">Tự đầu tư để nghiên cứu và phát triển sản phẩm</p>
+                        <div style="margin-top: 1rem;">
+                            <strong style="color: var(--text-primary);">Thành quả:</strong>
+                            <ul style="margin: 0.5rem 0; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Hoàn thiện công nghệ AI</li>
+                                <li>Thiết kế phần cứng</li>
+                                <li>Sản xuất mẫu thử nghiệm</li>
+                                <li>Có 3 video demo thực tế</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Pre-Seed Card -->
+                    <div class="stage-card" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05)); border-left: 4px solid var(--warning-color);">
+                        <div class="stage-header">
+                            <h4 style="margin: 0; color: var(--warning-color);">🤝 Pre-Seed</h4>
+                            <span style="color: var(--warning-color); font-weight: bold; font-size: 0.9rem;">🔄 Đang thực hiện</span>
+                        </div>
+                        <p style="margin: 0.5rem 0; color: var(--text-secondary);">Gọi vốn từ bạn bè, người thân, nhà đầu tư angel</p>
+                        <div style="margin-top: 1rem;">
+                            <strong style="color: var(--text-primary);">Mục tiêu:</strong>
+                            <ul style="margin: 0.5rem 0; padding-left: 1.2rem; color: var(--text-secondary);">
+                             
+                                <li>Sản xuất thử nghiệm</li>
+                                <li>Marketing ban đầu</li>
+                                <li>Thành lập công ty chính thức</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Seed Round Card -->
+                    <div class="stage-card" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05)); border-left: 4px solid var(--primary-color);">
+                        <div class="stage-header">
+                            <h4 style="margin: 0; color: var(--primary-color);">💼 Seed Round</h4>
+                            <span style="color: var(--primary-color); font-weight: bold; font-size: 0.9rem;">⏳ Tương lai</span>
+                        </div>
+                        <p style="margin: 0.5rem 0; color: var(--text-secondary);">Gọi vốn chính thức từ các quỹ đầu tư</p>
+                        <div style="margin-top: 1rem;">
+                            <strong style="color: var(--text-primary);">Kế hoạch:</strong>
+                            <ul style="margin: 0.5rem 0; padding-left: 1.2rem; color: var(--text-secondary);">
+                                <li>Mở rộng sản xuất</li>
+                                <li>Marketing chuyên nghiệp</li>
+                                <li>Mở rộng thị trường</li>
+                                <li>Phát triển tính năng mới</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <h3>🎯 Vị trí hiện tại - Pre-Seed:</h3>
@@ -981,7 +1081,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Lily Project. Tài liệu bảo mật - Chỉ dành cho chỗ anh em tin tưởng được.</p>
+            <p>&copy; 2025 Lily Project. Tài liệu bảo mật - Chỉ dành cho chỗ anh em tin tưởng được.</p>
             <p>Liên hệ: <strong>Đồng chí Tuyển 088 838 6826</strong> | Email: huamanhtuyen@gmail.com</p>
         </div>
     </footer>
